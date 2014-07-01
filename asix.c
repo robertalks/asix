@@ -71,6 +71,16 @@ static int ax88772b_set_csums(struct usbnet *dev);
 
 /* ASIX AX8817X based USB 2.0 Ethernet Devices */
 
+#define LINK_DOWN "down"
+#define LINK_UP "up"
+#define LINK_UNKNOWN "unknown"
+
+static const char *asix_link_status(int link)
+{
+        static const char* const status_string[] = { LINK_DOWN, LINK_UP };
+        return (link <= 1) ? status_string[link] : LINK_UNKNOWN;
+}
+
 static int ax8817x_read_cmd(struct usbnet *dev, u8 cmd, u16 value, u16 index,
 			    u16 size, void *data)
 {
@@ -150,7 +160,7 @@ static void ax88178_status(struct usbnet *dev, struct urb *urb)
 			axusbnet_defer_kevent(dev, EVENT_LINK_RESET);
 		} else
 			netif_carrier_off(dev->net);
-		devwarn(dev, "ax88178 - Link status is: %d", link);
+		devinfo(dev, "ax88178: link %s", asix_link_status(link));
 	}
 }
 
@@ -170,7 +180,7 @@ static void ax8817x_status(struct usbnet *dev, struct urb *urb)
 			axusbnet_defer_kevent(dev, EVENT_LINK_RESET);
 		} else
 			netif_carrier_off(dev->net);
-		devwarn(dev, "ax8817x - Link status is: %d", link);
+		devinfo(dev, "ax8817x: link %s", asix_link_status(link));
 	}
 }
 
@@ -197,8 +207,7 @@ static void ax88772_status(struct usbnet *dev, struct urb *urb)
 				ax772_data->TickToExpire = 25;
 			}
 		}
-
-		devwarn(dev, "ax88772 - Link status is: %d", link);
+		devinfo(dev, "ax88772: link %s", asix_link_status(link));
 	}
 
 	if (ax772_data->Event)
@@ -233,8 +242,7 @@ static void ax88772a_status(struct usbnet *dev, struct urb *urb)
 			netif_carrier_off(dev->net);
 			ax772a_data->Event = AX_NOP;
 		}
-
-		devwarn(dev, "ax88772a - Link status is: %d", link);
+		devinfo(dev, "ax88772a: link %s", asix_link_status(link));
 	}
 
 	if (ax772a_data->Event)
@@ -328,7 +336,7 @@ static void ax88772b_status(struct usbnet *dev, struct urb *urb)
 			netif_carrier_off(dev->net);
 			ax772b_data->time_to_chk = jiffies;
 		}
-		devwarn(dev, "ax88772b - Link status is: %d", link);
+		devinfo(dev, "ax88772b: link %s", asix_link_status(link));
 	}
 
 	if (!link) {
@@ -391,7 +399,7 @@ static void ax88772c_status(struct usbnet *dev, struct urb *urb)
 			netif_carrier_off(dev->net);
 			ax772b_data->time_to_chk = jiffies;
 		}
-		devwarn(dev, "ax88772c - Link status is: %d", link);
+		devinfo(dev, "ax88772c: link %s", asix_link_status(link));
 	}
 
 	if (!link) {
