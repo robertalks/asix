@@ -28,7 +28,7 @@ Note: Please make sure the kernel is built with one of the "Support for
 **Conditional Compilation Flag**
 ==============================
 
-*[AX_FORCE_BUFF_ALIGN]*
+**[AX_FORCE_BUFF_ALIGN]**
 
 Description:
 ------------
