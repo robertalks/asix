@@ -66,8 +66,8 @@ Default:
 
    or
 
-        [root@localhost asix]# KVER=3.12.0 make
-        [root@localhost asix]# KVER=3.12.0 make install
+        [root@localhost asix]# export KVER="3.12.0"
+        [root@localhost asix]# make && make install
 
 
 ==============================
