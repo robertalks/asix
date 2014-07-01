@@ -1,17 +1,17 @@
 ============================================================================
-ASIX AX88178 USB 2.0 Gigabit Ethernet Network Adapter
-ASIX AX88772 USB 2.0 Fast Ethernet Network Adapter
-ASIX AX88772A USB 2.0 Fast Ethernet Network Adapter
-ASIX AX88760 USB 2.0 MTT HUB and USB 2.0 to Fast Ethernet Combo Controller
-ASIX AX88772B USB 2.0 Fast Ethernet Network Adapter
-ASIX AX88772C USB 2.0 Fast Ethernet Network Adapter
-Driver Compilation & Configuration on the Linux
+**ASIX AX88178 USB 2.0 Gigabit Ethernet Network Adapter**
+**ASIX AX88772 USB 2.0 Fast Ethernet Network Adapter**
+**ASIX AX88772A USB 2.0 Fast Ethernet Network Adapter**
+**ASIX AX88760 USB 2.0 MTT HUB and USB 2.0 to Fast Ethernet Combo Controller**
+**ASIX AX88772B USB 2.0 Fast Ethernet Network Adapter**
+**ASIX AX88772C USB 2.0 Fast Ethernet Network Adapter**
 ============================================================================
 
-This driver has been verified on kernel versions from 2.6.14 to 3.8.0.
-================
+*This driver has been verified on kernel versions from 2.6.14 to 3.8.0.*
+
+==============================
 Prerequisites
-================
+==============================
 
 Prepare to build the driver, you need the Linux kernel sources installed on the
 build machine, and make sure that the version of the running kernel must match
@@ -23,9 +23,10 @@ Note: Please make sure the kernel is built with one of the "Support for
        Host-side, EHCI, OHCI, or UHCI" option support.
 
 
-===========================
-Conditional Compilation Flag
-===========================
+==============================
+**Conditional Compilation Flag**
+==============================
+
 [AX_FORCE_BUFF_ALIGN]
 Description:
        There are alignment issues of USB buffer in some USB host controllers.
@@ -40,17 +41,17 @@ Default:
 	0
 
 
-================
-Getting Start
-================
+==============================
+**Getting Start**
+==============================
 
 1. Clone the git repository
 
-	[root@localhost ~]# git clone https://github.com/robertalks/asix.git
+        [root@localhost ~]# git clone https://github.com/robertalks/asix.git
 
 2. Now, change directory to asix where are the driver source which you need to build
  
-	[root@localhost ~]# cd asix
+        [root@localhost ~]# cd asix
 			
 3. Compile and install the driver. Make sure you have the kernel headers and sources
    avaiable.
@@ -58,21 +59,21 @@ Getting Start
         [root@localhost asix]# make && make install
  
 
-================
-Usage
-================
+==============================
+**Usage**
+==============================
 
 1. If you want to load the driver manually, go to the driver directory and
    execute the following commands:
 
-	[root@localhost ~]# insmod asix.ko
+        [root@localhost ~]# insmod asix.ko
 
 2. If you had installed the driver during driver compilation, then you can use
    the following command to load the driver automatically.
 
-	[root@localhost ~]# modprobe asix
+        [root@localhost ~]# modprobe asix
 
 3. If you want to unload the driver, just executing the following command:
 
-	[root@localhost ~]# rmmod asix
+        [root@localhost ~]# rmmod asix
 
