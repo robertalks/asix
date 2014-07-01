@@ -5,12 +5,11 @@ ifeq ($(KVER),)
 KVER	= $(shell uname -r)
 endif
 KDIR	= /lib/modules/$(KVER)/build
-
+PWD	= $(shell pwd)
+DEST 	= /lib/modules/$(KVER)/$(MDIR)
 EXTRA_CFLAGS = -DEXPORT_SYMTAB
-PWD = $(shell pwd)
-DEST = /lib/modules/$(KVER)/$(MDIR)
 
-obj-m      := $(TARGET).o
+obj-m	:= $(TARGET).o
 
 default:
 	make -C $(KDIR) SUBDIRS=$(PWD) modules
