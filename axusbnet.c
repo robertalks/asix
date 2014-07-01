@@ -202,9 +202,12 @@ static int init_status(struct usbnet *dev, struct usb_interface *intf)
 #endif
 			usb_fill_int_urb(dev->interrupt, dev->udev, pipe,
 				buf, maxp, intr_complete, dev, period);
-			devdbg(dev,
-			       "status ep%din, %d bytes period %d",
-			       usb_pipeendpoint(pipe), maxp, period);
+			/* disable as it doesn't work correctly
+			 * example: eth%d: status ep1in, 8 bytes period 11
+			 * devdbg(dev,
+			 *        "status ep%din, %d bytes period %d",
+			 *        usb_pipeendpoint(pipe), maxp, period);
+			 */
 		}
 	}
 	return 0;
