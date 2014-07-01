@@ -43,6 +43,7 @@ Setting:
         0 -> Disable TX buffers forced on double word alignment.
 
 Default:
+
         0 -> TX Buffers are disabled.
 
 
