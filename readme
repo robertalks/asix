@@ -8,7 +8,7 @@ ASIX Kernel module
      ASIX AX88772B USB 2.0 Fast Ethernet Network Adapter
      ASIX AX88772C USB 2.0 Fast Ethernet Network Adapter
 
-*This driver has been verified on kernel versions from 2.6.14 to 3.8.0.*
+*This driver has been verified on kernel versions from 2.6.14 to 3.14*
 
 ==============================
 Prerequisites
