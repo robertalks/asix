@@ -41,8 +41,9 @@ Setting:
 
         1 -> Enable TX buffers forced on double word alignment.
         0 -> Disable TX buffers forced on double word alignment.
+
 Default:
-        0 -> Disabled
+        0 -> TX Buffers are disabled.
 
 
 ==============================
