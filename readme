@@ -55,12 +55,11 @@ Default:
 
         [root@localhost ~]# git clone https://github.com/robertalks/asix.git
 
-2. Now, change directory to asix where are the driver source which you need to build
+2. Now, change directory to the source directory of the driver
  
         [root@localhost ~]# cd asix
 			
-3. Compile and install the driver. Make sure you have the kernel headers and sources
-   avaiable.
+3. Compile and install the driver.
 
         [root@localhost asix]# make && make install
 
@@ -77,14 +76,14 @@ Default:
 1. If you want to load the driver manually, go to the driver directory and
    execute the following commands:
 
-        [root@localhost ~]# insmod asix.ko
+        [root@localhost ~]# cd asix && insmod asix.ko
 
 2. If you had installed the driver during driver compilation, then you can use
    the following command to load the driver automatically.
 
         [root@localhost ~]# modprobe asix
 
-3. If you want to unload the driver, just executing the following command:
+3. If you want to unload the driver, just execute the following command:
 
         [root@localhost ~]# rmmod asix
 
