@@ -28,18 +28,21 @@ Note: Please make sure the kernel is built with one of the "Support for
 **Conditional Compilation Flag**
 ==============================
 
-[AX_FORCE_BUFF_ALIGN]
+*[AX_FORCE_BUFF_ALIGN]*
+
 Description:
-       There are alignment issues of USB buffer in some USB host controllers.
-       Turn on this flag if the implementation of your USB host controller
-       cannot handle non-double word aligned buffer.
-       When turn on this flag, driver will fixup egress packet aligned on double
-       word boundary before deliver to USB host controller.
+------------
+There are alignment issues of USB buffer in some USB host controllers.
+Turn on this flag if the implementation of your USB host controller cannot handle 
+non-double word aligned buffer. When turn on this flag, driver will fixup 
+egress packet aligned on double word boundary before deliver to USB host controller.
+
 Setting:
-	1 -> Enable TX buffers forced on double word alignment.
-	0 -> Disable TX buffers forced on double word alignment.
+
+        1 -> Enable TX buffers forced on double word alignment.
+        0 -> Disable TX buffers forced on double word alignment.
 Default:
-	0
+        0 -> Disabled
 
 
 ==============================
