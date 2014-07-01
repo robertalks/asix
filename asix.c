@@ -42,7 +42,7 @@
 #include "axusbnet.c"
 #include "asix.h"
 
-#define DRV_VERSION	"4.13.0"
+#define DRV_VERSION "4.13.0"
 
 static char version[] =
 KERN_INFO "ASIX USB Ethernet Adapter:v" DRV_VERSION
@@ -4001,4 +4001,5 @@ module_exit(asix_exit);
 MODULE_AUTHOR("David Hollis");
 MODULE_DESCRIPTION("ASIX AX8817X based USB 2.0 Ethernet Devices");
 MODULE_LICENSE("GPL");
+MODULE_VERSION(DRV_VERSION);
 
