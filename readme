@@ -1,12 +1,12 @@
 ASIX Kernel module
 ==============================
-::
-    ASIX AX88178 USB 2.0 Gigabit Ethernet Network Adapter
-    ASIX AX88772 USB 2.0 Fast Ethernet Network Adapter
-    ASIX AX88772A USB 2.0 Fast Ethernet Network Adapter
-    ASIX AX88760 USB 2.0 MTT HUB and USB 2.0 to Fast Ethernet Combo Controller
-    ASIX AX88772B USB 2.0 Fast Ethernet Network Adapter
-    ASIX AX88772C USB 2.0 Fast Ethernet Network Adapter
+
+     ASIX AX88178 USB 2.0 Gigabit Ethernet Network Adapter
+     ASIX AX88772 USB 2.0 Fast Ethernet Network Adapter
+     ASIX AX88772A USB 2.0 Fast Ethernet Network Adapter
+     ASIX AX88760 USB 2.0 MTT HUB and USB 2.0 to Fast Ethernet Combo Controller
+     ASIX AX88772B USB 2.0 Fast Ethernet Network Adapter
+     ASIX AX88772C USB 2.0 Fast Ethernet Network Adapter
 
 *This driver has been verified on kernel versions from 2.6.14 to 3.8.0.*
 
