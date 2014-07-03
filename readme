@@ -76,14 +76,14 @@ Default:
 1. If you want to load the driver manually, go to the driver directory and
    execute the following commands:
 
-        [root@localhost ~]# cd asix && insmod asix.ko
+        [root@localhost ~]# cd asix && insmod ax8817x.ko
 
 2. If you had installed the driver during driver compilation, then you can use
    the following command to load the driver automatically.
 
-        [root@localhost ~]# modprobe asix
+        [root@localhost ~]# modprobe ax8817x 
 
 3. If you want to unload the driver, just execute the following command:
 
-        [root@localhost ~]# rmmod asix
+        [root@localhost ~]# rmmod ax8817x
 

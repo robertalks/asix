@@ -46,7 +46,7 @@
 #include <linux/usb.h>
 /*#include <linux/usb/usbnet.h>*/
 
-#include "asix.h"
+#include "ax8817x.h"
 #include "axusbnet.h"
 
 #define DRIVER_VERSION		"22-Aug-2005"

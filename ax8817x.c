@@ -40,7 +40,7 @@
 #include <linux/crc32.h>
 
 #include "axusbnet.c"
-#include "asix.h"
+#include "ax8817x.h"
 
 #define DRV_VERSION "4.13.0"
 
@@ -3978,7 +3978,7 @@ MODULE_DEVICE_TABLE(usb, products);
 
 static struct usb_driver asix_driver = {
 	/* .owner =	THIS_MODULE, */
-	.name =		"asix",
+	.name =		"ax8817x",
 	.id_table =	products,
 	.probe =	axusbnet_probe,
 	.suspend =	ax_suspend,
