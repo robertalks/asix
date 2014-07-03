@@ -6,13 +6,14 @@ KVER	= $(shell uname -r)
 endif
 KDIR	= /lib/modules/$(KVER)/build
 PWD	= $(shell pwd)
+ARCH	= $(shell uname -m | sed -e s/i.86/i386/)
 DEST 	= /lib/modules/$(KVER)/$(MDIR)
 EXTRA_CFLAGS = -DEXPORT_SYMTAB
 
 obj-m	:= $(TARGET).o
 
 default:
-	make -C $(KDIR) SUBDIRS=$(PWD) modules
+	$(MAKE) ARCH=$(ARCH) -C $(KDIR) M=$(PWD) modules
 
 $(TARGET).o: $(OBJS)
 	$(LD) $(LD_RFLAG) -r -o $@ $(OBJS)
