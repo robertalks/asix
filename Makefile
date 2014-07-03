@@ -20,7 +20,8 @@ $(TARGET).o: $(OBJS)
 
 install:
 	[ -d $(DEST) ] || mkdir -p $(DEST) 2>/dev/null
-	cp -v $(TARGET).ko $(DEST) && /sbin/depmod -a $(KVER)
+	install -p -m 644 $(TARGET).ko $(DEST)
+	/sbin/depmod -a $(KVER)
 	grep -wq asix /etc/modprobe.d/blacklist.conf 2>/dev/null || echo "blacklist asix" >> /etc/modprobe.d/blacklist.conf
 
 clean:
