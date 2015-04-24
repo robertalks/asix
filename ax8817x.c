@@ -41,7 +41,7 @@
 #include "axusbnet.c"
 #include "ax8817x.h"
 
-#define DRV_VERSION "4.16.0"
+#define DRV_VERSION "4.17.0"
 
 static char version[] =
 KERN_INFO "ASIX USB Ethernet Adapter:v" DRV_VERSION
