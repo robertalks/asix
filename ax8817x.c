@@ -44,8 +44,7 @@
 #define DRV_VERSION "4.17.3"
 
 static char version[] =
-KERN_INFO "ASIX USB Ethernet Adapter " DRV_VERSION
-	"    http://www.asix.com.tw\n";
+KERN_INFO "ASIX USB Ethernet Adapter " DRV_VERSION " (http://www.asix.com.tw)\n";
 
 /* configuration of maximum bulk in size */
 static int bsize = AX88772B_MAX_BULKIN_16K;

@@ -1158,9 +1158,12 @@ static void axusbnet_bh(unsigned long param)
 					rx_submit(dev, urb, GFP_ATOMIC);
 				}
 			}
+
+			/* not need it, too much junk in the trunk
 			if (temp != dev->rxq.qlen && netif_msg_link(dev))
 				devdbg(dev, "rxqlen %d --> %d",
-				       temp, dev->rxq.qlen);
+				       temp, dev->rxq.qlen); */
+
 			if (dev->rxq.qlen < qlen)
 				tasklet_schedule(&dev->bh);
 		}
