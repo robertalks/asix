@@ -41,11 +41,10 @@
 #include "axusbnet.c"
 #include "ax8817x.h"
 
-#define DRV_VERSION "4.17.0"
+#define DRV_VERSION "4.17.3"
 
 static char version[] =
-KERN_INFO "ASIX USB Ethernet Adapter:v" DRV_VERSION
-	" " __TIME__ " " __DATE__ "\n"
+KERN_INFO "ASIX USB Ethernet Adapter " DRV_VERSION
 	"    http://www.asix.com.tw\n";
 
 /* configuration of maximum bulk in size */
@@ -1117,7 +1116,11 @@ static int access_eeprom_mac(struct usbnet *dev, u8 *buf, u8 offset, bool wflag)
 
 	if (!wflag) {
 		if (ret < 0) {
-			netdev_dbg(dev->net, "Failed to read MAC address from EEPROM: %d\n", ret);
+			#if LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 34)
+				netdev_dbg(dev->net, "Failed to read MAC address from EEPROM: %d\n", ret);
+			#else
+				devdbg(dev, "Failed to read MAC address from EEPROM: %d\n", ret);
+			#endif
 			return ret;
 		}
 		memcpy(dev->net->dev_addr, buf, ETH_ALEN);
@@ -1160,7 +1163,9 @@ static int ax8817x_check_ether_addr(struct usbnet *dev)
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 4, 0)
 		eth_hw_addr_random(dev->net);
 #else
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 36)
 		dev->net->addr_assign_type |= NET_ADDR_RANDOM;
+#endif
 		random_ether_addr(dev->net->dev_addr); 
 #endif
 		*tmp = 0;

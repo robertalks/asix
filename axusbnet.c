@@ -205,8 +205,8 @@ static int init_status(struct usbnet *dev, struct usb_interface *intf)
 			/* disable as it doesn't work correctly
 			 * example: eth%d: status ep1in, 8 bytes period 11
 			 * devdbg(dev,
-			 *        "status ep%din, %d bytes period %d",
-			 *        usb_pipeendpoint(pipe), maxp, period);
+			 *	"status ep%din, %d bytes period %d",
+			 *	usb_pipeendpoint(pipe), maxp, period);
 			 */
 		}
 	}
@@ -1004,8 +1004,11 @@ static
 void axusbnet_tx_timeout(struct net_device *net)
 {
 	struct usbnet *dev = netdev_priv(net);
+	struct driver_info *info = dev->driver_info;
 
-	unlink_urbs(dev, &dev->txq);
+	if (!(info->flags & FLAG_AVOID_UNLINK_URBS)) {
+		unlink_urbs(dev, &dev->txq);
+	}
 	tasklet_schedule(&dev->bh);
 
 	/* FIXME: device recovery -- reset? */
